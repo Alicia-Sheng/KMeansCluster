@@ -6,7 +6,9 @@ public class Point {
 	private double x;
 	private double y;
 	private int clusterNumber;
-
+	
+	
+        // Construct two fields of Point: x and y
 	public Point(double x, double y) {
 		this.x = x;
 		this.y = y;
@@ -44,7 +46,7 @@ public class Point {
 		return Math.sqrt(SquareY+SquareX);
 	}
 
-    // creates a random Point
+        // creates a random Point
 	public Point createRandomPoint(int a, int b) {
 		Random rand = new Random();
 		double x = a + (b-a)*rand.nextDouble();
