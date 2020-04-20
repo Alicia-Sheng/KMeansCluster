@@ -39,7 +39,9 @@ public class Point {
 
 	// calculate the distance between point and centroid
 	public double distance(Point centroid) {
-		return Math.sqrt(Math.pow((centroid.y - y), 2) + Math.pow((centroid.x - x), 2));
+		SquareY = Math.pow((centroid.y - y), 2);
+	        SquareX = Math.pow((centroid.x - x), 2);
+		return Math.sqrt(SquareY+SquareX);
 	}
 
     // creates a random Point
