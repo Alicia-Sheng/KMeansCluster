@@ -16,6 +16,11 @@ public class Cluster {
 		this.samples=sample;
 	}
 	
+	public Cluster(Sample clusterPt, ArrayList<Sample> samples) {
+		this(samples);
+		this.clusterPt = clusterPt;
+	}
+	
 	//This method picks a random sample of a cluster
 	public Sample randomPt() {
 		Random rand=new Random();
