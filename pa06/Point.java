@@ -32,8 +32,8 @@ public class Point {
 		this.y = y;
 	}
 	
-	public void setClusterNumber(int n) {
-		this.clusterNumber = n;
+	public void setClusterNumber(int number) {
+		this.clusterNumber = number;
 	}
 
 
