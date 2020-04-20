@@ -24,6 +24,23 @@ public class Cluster {
 		return this.rows.get(randNum);
 	}
 	
+	//This method returns the average Sample in a cluster
+	public Sample average() {
+		ArrayList<Double> averageCoordinates=new ArrayList<Double>();
+		int sampleNum=this.samples.size();
+		int coordinateNum=this.samples.get(0).getSample().size();
+		
+		for (int i=0;i<coordinateNum;i++) {
+			double sumCoordinate=0;
+			for (int j=0;j<sampleNum;j++) {
+				sumCoordinate+=this.samples.get(j).getSample().get(i);
+			}
+			averageCoordinates.add(sumCoordinate/sampleNum);
+		}
+		Sample average=new Sample(averageCoordinates);
+		return average;
+	}
+	
 	//This method prints a cluster
 	public String printCluster() {
 		String output="";
