@@ -10,17 +10,17 @@ import java.util.Random;
  */
 public class Cluster {
 	Sample clusterPt;
-	ArrayList<Sample> rows;
+	ArrayList<Sample> samples;
 	
-	public Cluster(ArrayList<Sample> rows) {
-		this.rows=rows;
+	public Cluster(ArrayList<Sample> samples) {
+		this.samples=sample;
 	}
 	
 	//This method picks a random sample of a cluster
 	public Sample randomPt() {
 		Random rand=new Random();
-		int randNum=rand.nextInt(this.rows.size());
-		return this.rows.get(randNum);
+		int randNum=rand.nextInt(this.samples.size());
+		return this.samples.get(randNum);
 	}
 	
 	//This method returns the average Sample in a cluster
