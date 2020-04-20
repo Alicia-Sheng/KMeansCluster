@@ -36,6 +36,14 @@ public class Sample {
 		return output+")";
 	}
 	
+	public ArrayList<Double> getSample() {
+		return this.sample;
+	}
+	
+	public void setSample(ArrayList<Double> sample) {
+		this.sample=sample;
+	}
+	
 	//this main method tests the Cluster class (can be deleted later)
 	public static void main(String[] args) {
 		System.out.println("testing for the Sample class.");
