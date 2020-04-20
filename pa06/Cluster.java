@@ -54,6 +54,22 @@ public class Cluster {
 		return output;
 	}
 	
+	public Sample getClusterPt() {
+		return this.clusterPt;
+	}
+	
+	public void setClusterPt(Sample ClusterPt) {
+		this.clusterPt=ClusterPt;
+	}
+	
+	public ArrayList<Sample> getSamples(){
+		return this.getSamples();
+	}
+	
+	public void setSamples(ArrayList<Sample> samples) {
+		this.samples=samples;
+	}
+	
 	//this main method tests the Cluster class (can be deleted later)
 	public static void main(String[] args) {
 		System.out.println("testing for the Cluster class.");
