@@ -69,32 +69,32 @@ public class KMeans {
 	}
 
 	private ArrayList<Sample> getClusterPts() {
-		ArrayList<Sample> clusterPts = new ArrayList<Sample>(K);
+		ArrayList<Sample> clusterPts = new ArrayList<Sample>();
 		for (Cluster cluster : clusters) {
 			Sample clusterPt = cluster.getClusterPt();
 			Sample sample = new Sample(clusterPt.sample);
 			clusterPts.add(sample);
 		}
-		System.out.println(clusterPts);
 		return clusterPts;
 	}
 
 	private void setCluster() {
-		double min = Double.MAX_VALUE;
-		int a = 0;
+		double minDistance = Double.MAX_VALUE;
+		int index = 0;
 		double distance = 0.0;
 
 		for (Sample sample : samples) {
+			minDistance = Double.MAX_VALUE;
 			for (int i = 0; i < K; i++) {
 				Cluster cluster = clusters.get(i);
 				distance = sample.distance(cluster.getClusterPt());
-				if (distance < min) {
-					min = distance;
-					a = i;
+				if (distance < minDistance) {
+					minDistance = distance;
+					index = i;
 				}
 			}
-			sample.setCluster(a);
-			clusters.get(a).addSample(sample);
+			sample.setClusterNum(index);
+			clusters.get(index).addSample(sample);
 		}
 	}
 
@@ -133,10 +133,12 @@ public class KMeans {
 		while (run) {
 			clear();
 			ArrayList<Sample> ClusterPts1 = getClusterPts();
+
 			setCluster();
 			calculateClusterPts(D);
 			count++;
 			ArrayList<Sample> ClusterPts2 = getClusterPts();
+
 			double distance = 0;
 			for (int i = 0; i < ClusterPts1.size(); i++) {
 				distance += ClusterPts1.get(i).distance(ClusterPts2.get(i));
@@ -147,7 +149,7 @@ public class KMeans {
 			printClusters();
 			if (distance == 0) {
 				run = false;
-			} break;
+			} 
 		}
 	}
 

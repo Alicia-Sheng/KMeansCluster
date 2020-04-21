@@ -52,7 +52,7 @@ public class Cluster {
 	public String toString() {
 		String output = "";
 		for (Sample samp : this.samples) {
-			output += String.format("%s%n", samp.toString());
+			output += String.format("%s%n", samp);
 		}
 		return output;
 	}
@@ -60,10 +60,12 @@ public class Cluster {
 	public void printCluster() {
 		System.out.println("Cluster: ");
 		System.out.println("Cluster point: " + clusterPt);
-		System.out.println("Samples: ");
-		for (Sample samp : this.samples) {
-			System.out.println(samp);
-		}
+		System.out.println();
+//		System.out.println("Samples: ");
+//		for (Sample samp : this.samples) {
+//			System.out.println(samp);
+//		}
+//		The data we tested for contains huge amount of samples, so we just prevent it from printing samples.
 	}
 	
 	public Sample getClusterPt() {

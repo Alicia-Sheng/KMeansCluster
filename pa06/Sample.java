@@ -19,11 +19,11 @@ public class Sample {
 		}
 	}
 	
-    public void setCluster(int n) {
+    public void setClusterNum(int n) {
         this.clusterNum = n;
     }
     
-    public int getCluster() {
+    public int getClusterNum() {
         return this.clusterNum;
     }
 
