@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -9,8 +8,8 @@ import java.util.Random;
  */
 
 public class Sample {
-	static ArrayList<Double> sample;
-    private int cluster_number = 0;
+	ArrayList<Double> sample;
+    private int clusterNum = 0;
 
 	public Sample(ArrayList<Double> values) { // I changed this from double[] to ArrayList, so that it's easier to
 												// access data from the file
@@ -21,11 +20,11 @@ public class Sample {
 	}
 	
     public void setCluster(int n) {
-        this.cluster_number = n;
+        this.clusterNum = n;
     }
     
     public int getCluster() {
-        return this.cluster_number;
+        return this.clusterNum;
     }
 
 	// This method calculates the distance between two samples
@@ -54,16 +53,26 @@ public class Sample {
 		this.sample = sample;
 	}
 
-	public static Sample randomPoint(int min, int max) {
-		Random r = new Random();
-		int dimension = sample.size();
+	public static Sample randomSample(int min, int max, int D) {
+		Random rand = new Random();
+		int dimension = D;
 		ArrayList<Double> result = new ArrayList<Double>();
 		for (int i = 0; i < dimension; i++) {
-			double a = min + (max - min) * r.nextDouble();
+			double a = min + (max - min) * rand.nextDouble();
 			result.add(a);
 		}
 		return new Sample(result);
 	}
+	
+    public static ArrayList<Sample> randomSamples(int min, int max, int D, int N) {
+    	ArrayList<Sample> samples = new ArrayList<Sample>();
+    	for(int i = 0; i < N; i++) {
+    		samples.add(randomSample(min,max,D));
+        	System.out.println(samples);
+    	}
+    	System.out.println(samples);
+    	return samples;
+    }
 
 	// this main method tests the Cluster class (can be deleted later)
 	public static void main(String[] args) {
@@ -76,7 +85,7 @@ public class Sample {
 		p2.add(5.0);
 		Sample s1 = new Sample(p1);
 		Sample s2 = new Sample(p2);
-		System.out.println("s1=" + s1.toString());
+		System.out.println("s1=" + s1);
 		System.out.println(s1.distance(s2));
 	}
 

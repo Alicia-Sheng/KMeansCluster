@@ -1,5 +1,3 @@
-package pa06;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -11,6 +9,11 @@ import java.util.Random;
 public class Cluster {
 	private Sample clusterPt;
 	private ArrayList<Sample> samples;
+	
+	public Cluster() {
+		this.samples = new ArrayList<Sample>();
+		this.clusterPt = null;
+	}
 
 	public Cluster(ArrayList<Sample> samples) {
 		this.samples = samples;
@@ -46,12 +49,21 @@ public class Cluster {
 	}
 
 	// This method prints a cluster
-	public String printCluster() {
+	public String toString() {
 		String output = "";
 		for (Sample samp : this.samples) {
 			output += String.format("%s%n", samp.toString());
 		}
 		return output;
+	}
+	
+	public void printCluster() {
+		System.out.println("Cluster: ");
+		System.out.println("Cluster point: " + clusterPt);
+		System.out.println("Samples: ");
+		for (Sample samp : this.samples) {
+			System.out.println(samp);
+		}
 	}
 	
 	public Sample getClusterPt() {
@@ -63,11 +75,19 @@ public class Cluster {
 	}
 	
 	public ArrayList<Sample> getSamples(){
-		return this.getSamples();
+		return this.samples;
 	}
 	
 	public void setSamples(ArrayList<Sample> samples) {
 		this.samples=samples;
+	}
+	
+	public void addSample(Sample sample) {
+		samples.add(sample);
+	}
+	
+	public void clear() {
+		samples.clear();
 	}
 
 	// this main method tests the Cluster class (can be deleted later)
@@ -85,7 +105,7 @@ public class Cluster {
 		rows.add(s1);rows.add(s2);
 		Cluster c1 = new Cluster(rows);
 		System.out.println("random pt=" + c1.randomSample());
-		System.out.printf("%s%n%s", "cluster:", c1.printCluster());
+		System.out.printf("%s%n%s", "cluster:", c1);
 		System.out.println("average=" + c1.average());
 	}
 }
